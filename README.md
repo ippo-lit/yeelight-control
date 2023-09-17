@@ -1,4 +1,4 @@
 # yeelight-control
 
-install python
+install python, 
 pip install yeelight
