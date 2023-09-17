@@ -99,7 +99,7 @@ temperature_label.pack()
 temperature_spinbox = Spinbox(root, from_=1700, to=6500)
 temperature_spinbox.pack()
 
-set_brightness_button = tk.Button(root, text="Ayarla", command=set_brightness)
+set_brightness_button = tk.Button(root, text="Parlaklığı Ayarla", command=set_brightness)
 set_brightness_button.pack()
 
 set_temperature_button = tk.Button(root, text="Renk Sıcaklığını Ayarla", command=set_color_temperature)
