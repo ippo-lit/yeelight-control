@@ -16,7 +16,6 @@ def set_brightness():
         brightness = int(brightness_spinbox.get())
         ampul = Bulb(ip_entry.get(), int(port_entry.get()))
         ampul.set_brightness(brightness)
-        save_settings()
     except Exception as e:
         status_label.config(text="Hata: " + str(e))
 
@@ -25,7 +24,6 @@ def set_color_temperature():
         temperature = int(temperature_spinbox.get())
         ampul = Bulb(ip_entry.get(), int(port_entry.get()))
         ampul.set_color_temp(temperature)
-        save_settings()
     except Exception as e:
         status_label.config(text="Hata: " + str(e))
 
@@ -54,6 +52,9 @@ def load_settings():
     except FileNotFoundError:
         pass
 
+def on_exit():
+    save_settings()
+    root.destroy()
 
 root = tk.Tk()
 root.title("Yeelight Kontrol")
@@ -108,5 +109,7 @@ status_label = tk.Label(root, text="")
 status_label.pack()
 
 load_settings()
+
+root.protocol("WM_DELETE_WINDOW", on_exit)
 
 root.mainloop()
