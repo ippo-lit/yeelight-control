@@ -1,11 +1,11 @@
 Dependency installation
 
-Windows:
+Windows
 - Install Python
 - Run: pip install yeelight
 
 
-Linux:
+Linux
 a-) Fedora:
 - sudo dnf install python
 - sudo dnf install python3-tkinter 
