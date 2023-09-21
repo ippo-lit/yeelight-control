@@ -4,6 +4,7 @@ Windows:
 - Install Python
 - Run: pip install yeelight
 
+
 Linux:
 a-) Fedora:
 - sudo dnf install python
