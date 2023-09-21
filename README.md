@@ -1,19 +1,9 @@
-# yeelight-control
-
 Dependency installation
 
-Windows:
+Windows: install python, pip install yeelight  
 
-install python, 
-
-pip install yeelight
-
-Linux:
-
-a-)Fedora : 
-
-sudo dnf install python3-pip, 
-
-sudo dnf install yeelight, 
-
-sudo dnf install python3-tkinter
+Linux:   
+a-) Fedora:  
+   sudo dnf install python3-pip  
+   sudo dnf install yeelight  
+   sudo dnf install python3-tkinter  
