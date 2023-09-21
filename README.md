@@ -7,7 +7,7 @@ install python,
 pip install yeelight
 
 Linux:
-a-)Fedora
-sudo dnf install python3-pip
-sudo dnf install yeelight
+a-)Fedora : 
+sudo dnf install python3-pip, 
+sudo dnf install yeelight, 
 sudo dnf install python3-tkinter
