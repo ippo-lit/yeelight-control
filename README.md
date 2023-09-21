@@ -5,8 +5,8 @@ Windows
 - Run: pip install yeelight
 
 
-Linux
-a-) Fedora:
+Linux    
+- a-) Fedora:
 - sudo dnf install python
 - sudo dnf install python3-tkinter 
 - sudo dnf install python3-pip
