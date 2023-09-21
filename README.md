@@ -6,6 +6,7 @@ Windows
 
 
 Linux    
+
 a-) Fedora
 - sudo dnf install python
 - sudo dnf install python3-tkinter 
