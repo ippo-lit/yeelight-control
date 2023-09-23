@@ -1,5 +1,5 @@
 import tkinter as tk
-from tkinter import Spinbox
+from tkinter import Spinbox, colorchooser
 from yeelight import Bulb
 import json
 
@@ -24,6 +24,33 @@ def set_color_temperature():
         temperature = int(temperature_spinbox.get())
         ampul = Bulb(ip_entry.get(), int(port_entry.get()))
         ampul.set_color_temp(temperature)
+    except Exception as e:
+        status_label.config(text="Hata: " + str(e))
+
+def save_last_selected_color():
+    global last_selected_color
+    settings = load_settings()
+    settings["last_selected_color"] = last_selected_color
+    with open("settings.json", "w") as file:
+        json.dump(settings, file)
+
+def choose_color():
+    color = colorchooser.askcolor(title="Renk Seçin")
+    if color[1] is not None:
+        try:
+            r, g, b = [int(c) for c in color[0]]
+            ampul = Bulb(ip_entry.get(), int(port_entry.get()))
+            ampul.set_rgb(r, g, b)
+            last_selected_color = (r, g, b)
+        except Exception as e:
+            status_label.config(text="Hata: " + str(e))
+
+def set_default_settings():
+    try:
+        ampul = Bulb(ip_entry.get(), int(port_entry.get()))
+        ampul.set_rgb(255, 255, 255)
+        ampul.set_brightness(100)
+        ampul.set_color_temp(4700)
     except Exception as e:
         status_label.config(text="Hata: " + str(e))
 
@@ -65,7 +92,7 @@ screen_width = root.winfo_screenwidth()
 screen_height = root.winfo_screenheight()
 
 window_width = 200
-window_height = 270
+window_height = 400
 
 x_position = screen_width - window_width - 20
 y_position = screen_height - window_height - 100
@@ -104,6 +131,12 @@ set_brightness_button.pack()
 
 set_temperature_button = tk.Button(root, text="Renk Sıcaklığını Ayarla", command=set_color_temperature)
 set_temperature_button.pack()
+
+color_button = tk.Button(root, text="Renk Seç", command=choose_color)
+color_button.pack()
+
+default_settings_button = tk.Button(root, text="Varsayılana Ayarla", command=set_default_settings)
+default_settings_button.pack()
 
 status_label = tk.Label(root, text="")
 status_label.pack()
