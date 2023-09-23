@@ -92,7 +92,7 @@ screen_width = root.winfo_screenwidth()
 screen_height = root.winfo_screenheight()
 
 window_width = 200
-window_height = 400
+window_height = 380
 
 x_position = screen_width - window_width - 20
 y_position = screen_height - window_height - 100
@@ -105,7 +105,7 @@ ip_label.pack()
 ip_entry = tk.Entry(root)
 ip_entry.pack()
 
-port_label = tk.Label(root, text="Ampul Port:\n (55443)")
+port_label = tk.Label(root, text="Ampul Port: (55443)")
 port_label.pack()
 
 port_entry = tk.Entry(root)
