@@ -27,13 +27,6 @@ def set_color_temperature():
     except Exception as e:
         status_label.config(text="Hata: " + str(e))
 
-def save_last_selected_color():
-    global last_selected_color
-    settings = load_settings()
-    settings["last_selected_color"] = last_selected_color
-    with open("settings.json", "w") as file:
-        json.dump(settings, file)
-
 def choose_color():
     color = colorchooser.askcolor(title="Renk Seçin")
     if color[1] is not None:
@@ -92,7 +85,7 @@ screen_width = root.winfo_screenwidth()
 screen_height = root.winfo_screenheight()
 
 window_width = 200
-window_height = 380
+window_height = 400
 
 x_position = screen_width - window_width - 20
 y_position = screen_height - window_height - 100
